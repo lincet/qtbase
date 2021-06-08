@@ -74,6 +74,7 @@ QFileInfoGatherer::QFileInfoGatherer(QObject *parent)
 {
 #ifndef QT_NO_FILESYSTEMWATCHER
     watcher = new QFileSystemWatcher(this);
+    watcher->setObjectName(QLatin1String("_qt_autotest_force_engine_poller"));
     connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(list(QString)));
     connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(updateFile(QString)));
 #endif
